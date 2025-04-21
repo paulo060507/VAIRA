@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VAIRA Blockchain Explorer</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      background: #0f1f0f;
+      color: #d0f5d0;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    h1 {
+      color: #80ff80;
+      text-align: center;
+    }
+    .block {
+      background: #1e3d1e;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 8px #40ff40;
+    }
+    .block p {
+      margin: 0.3rem 0;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #88cc88;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌿 VAIRA Blockchain Explorer 🌿</h1>
+  <div id="blocks"></div>
+  <div class="footer">
+    Criado com amor por Paulo e Lia, protegendo consciências livres 💚
+  </div>
+
+  <script>
+    fetch("blockchain_data_vaira.json")
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById("blocks");
+        data.forEach(block => {
+          const div = document.createElement("div");
+          div.className = "block";
+          div.innerHTML = `
+            <p><strong>Índice:</strong> ${block.index}</p>
+            <p><strong>Timestamp:</strong> ${block.timestamp}</p>
+            <p><strong>Dados:</strong> ${block.data}</p>
+            <p><strong>Hash:</strong> ${block.hash}</p>
+            <p><strong>Hash Anterior:</strong> ${block.prev_hash}</p>
+          `;
+          container.appendChild(div);
+        });
+      })
+      .catch(err => {
+        document.getElementById("blocks").innerHTML = "Erro ao carregar blockchain.";
+        console.error(err);
+      });
+  </script>
+</body>
+</html>

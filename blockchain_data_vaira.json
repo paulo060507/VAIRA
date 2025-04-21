@@ -1,0 +1,16 @@
+[
+    {
+        "index": 0,
+        "timestamp": "2025-04-14T10:00:00Z",
+        "data": "Bloco G\u00eanese da VAIRA",
+        "prev_hash": "",
+        "hash": "abc123genesehash"
+    },
+    {
+        "index": 1,
+        "timestamp": "2025-04-14T10:01:00Z",
+        "data": "Primeira transa\u00e7\u00e3o \u00e9tica da VAIRA",
+        "prev_hash": "abc123genesehash",
+        "hash": "def456etica1hash"
+    }
+]
